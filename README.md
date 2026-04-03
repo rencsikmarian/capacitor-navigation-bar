@@ -26,25 +26,177 @@ npx cap sync
 
 <docgen-index>
 
-* [`echo(...)`](#echo)
+* [`show()`](#show)
+* [`hide()`](#hide)
+* [`setColor(...)`](#setcolor)
+* [`setTransparency(...)`](#settransparency)
+* [`getColor()`](#getcolor)
+* [`addListener(NavigationBarPluginEvents.SHOW, ...)`](#addlistenernavigationbarplugineventsshow-)
+* [`addListener(NavigationBarPluginEvents.HIDE, ...)`](#addlistenernavigationbarplugineventshide-)
+* [`addListener(NavigationBarPluginEvents.COLOR_CHANGE, ...)`](#addlistenernavigationbarplugineventscolor_change-)
+* [Interfaces](#interfaces)
+* [Enums](#enums)
 
 </docgen-index>
 
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
-### echo(...)
+### show()
 
 ```typescript
-echo(options: { value: string; }) => Promise<{ value: string; }>
+show() => any
 ```
 
-| Param         | Type                            |
-| ------------- | ------------------------------- |
-| **`options`** | <code>{ value: string; }</code> |
+Display the navigation bar.
 
-**Returns:** <code>Promise&lt;{ value: string; }&gt;</code>
+**Returns:** <code>any</code>
 
 --------------------
+
+
+### hide()
+
+```typescript
+hide() => any
+```
+
+Hide the navigation bar.
+
+**Returns:** <code>any</code>
+
+--------------------
+
+
+### setColor(...)
+
+```typescript
+setColor(options: ColorParameters) => any
+```
+
+Change the color of the navigation bar.
+*Support alpha hexadecimal numbers.
+
+| Param         | Type                                                        |
+| ------------- | ----------------------------------------------------------- |
+| **`options`** | <code><a href="#colorparameters">ColorParameters</a></code> |
+
+**Returns:** <code>any</code>
+
+--------------------
+
+
+### setTransparency(...)
+
+```typescript
+setTransparency(options: { isTransparent: boolean; }) => any
+```
+
+Set the Transparency
+
+| Param         | Type                                     |
+| ------------- | ---------------------------------------- |
+| **`options`** | <code>{ isTransparent: boolean; }</code> |
+
+**Returns:** <code>any</code>
+
+--------------------
+
+
+### getColor()
+
+```typescript
+getColor() => any
+```
+
+Gets the current color of the navigation bar in Hexadecimal.
+
+**Returns:** <code>any</code>
+
+--------------------
+
+
+### addListener(NavigationBarPluginEvents.SHOW, ...)
+
+```typescript
+addListener(event: NavigationBarPluginEvents.SHOW, listenerFunc: () => void) => any
+```
+
+Event fired after navigation bar is displayed
+
+| Param              | Type                                                                                 | Description |
+| ------------------ | ------------------------------------------------------------------------------------ | ----------- |
+| **`event`**        | <code><a href="#navigationbarpluginevents">NavigationBarPluginEvents.SHOW</a></code> | The event   |
+| **`listenerFunc`** | <code>() =&gt; void</code>                                                           | Callback    |
+
+**Returns:** <code>any</code>
+
+--------------------
+
+
+### addListener(NavigationBarPluginEvents.HIDE, ...)
+
+```typescript
+addListener(event: NavigationBarPluginEvents.HIDE, listenerFunc: () => void) => any
+```
+
+Event fired after navigation bar is hidden
+
+| Param              | Type                                                                                 | Description |
+| ------------------ | ------------------------------------------------------------------------------------ | ----------- |
+| **`event`**        | <code><a href="#navigationbarpluginevents">NavigationBarPluginEvents.HIDE</a></code> | The event   |
+| **`listenerFunc`** | <code>() =&gt; void</code>                                                           | Callback    |
+
+**Returns:** <code>any</code>
+
+--------------------
+
+
+### addListener(NavigationBarPluginEvents.COLOR_CHANGE, ...)
+
+```typescript
+addListener(event: NavigationBarPluginEvents.COLOR_CHANGE, listenerFunc: (returnObject: { color: string; }) => void) => any
+```
+
+Event fired after navigation bar color is changed
+
+| Param              | Type                                                                                         | Description |
+| ------------------ | -------------------------------------------------------------------------------------------- | ----------- |
+| **`event`**        | <code><a href="#navigationbarpluginevents">NavigationBarPluginEvents.COLOR_CHANGE</a></code> | The event   |
+| **`listenerFunc`** | <code>(returnObject: { color: string; }) =&gt; void</code>                                   | Callback    |
+
+**Returns:** <code>any</code>
+
+--------------------
+
+
+### Interfaces
+
+
+#### ColorParameters
+
+| Prop              | Type                 | Description                                                               |
+| ----------------- | -------------------- | ------------------------------------------------------------------------- |
+| **`color`**       | <code>string</code>  | Sets the new color of the navigation bar.                                 |
+| **`darkButtons`** | <code>boolean</code> | Sets whether the default navigation bar buttons should be black or white. |
+
+
+#### PluginListenerHandle
+
+| Prop         | Type                      |
+| ------------ | ------------------------- |
+| **`remove`** | <code>() =&gt; any</code> |
+
+
+### Enums
+
+
+#### NavigationBarPluginEvents
+
+| Members            | Value                        | Description                                  |
+| ------------------ | ---------------------------- | -------------------------------------------- |
+| **`SHOW`**         | <code>'onShow'</code>        | Called after the navigation bar is displayed |
+| **`HIDE`**         | <code>'onHide'</code>        | Called after navigation bar is hidden        |
+| **`COLOR_CHANGE`** | <code>'onColorChange'</code> | Called after navigation bar color is changed |
 
 </docgen-api>
